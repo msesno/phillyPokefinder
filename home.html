@@ -1,0 +1,172 @@
+<!-- Step 1: Create the Layout. -->
+<!-- Step 2: Flag key sections with specific id names. These will be replaced by JavaScript -->
+
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+    <meta charset='UTF-8'>
+    <title>Philly Pokedex</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Slackey|Mandali" rel="stylesheet">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+        #pokemap {
+          height: 300px;
+        }
+
+
+        #media {
+            z-index: 1;
+            margin: 100px 20px 20px 10px;
+            position: fixed;
+            float: right;
+        }
+        
+</style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-dark bg-dark" id="navi">
+        <button class="btn btn-outline-info my-sm-0" id="btnRefresh" type="submit"><i class="fas fa-sync-alt"></i> refresh data</button>
+        <button class="btn btn-outline-info my-2 my-sm-0 play" id="btn1" type="submit"> play music <i class="fas fa-music"></i></button>    
+    </nav>
+
+
+    <!-- Bootstrap Container will hold everything. -->
+    <div class="container">
+
+        <!-- Jumbotron holds the title section. -->
+        <div class='jumbotron' id="topSpace">
+            <div class='container'>
+                <h1 class="text-center"><img src="assets/images/logo.svg" alt="logo" class="fa-spin"> Philly Pokedex</h1>
+                <hr>
+                <p class="text-center"><small><i class="fas fa-layer-group"></i> list existing pokemons and find in search below</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- Game counters held here. cards are being used to hold various sections. -->
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <!-- start map card -->
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-map-marked-alt"></i><strong> Map</strong></h3>
+                    </div>
+
+                    <div class="card-body" id="pokemap">
+
+                        <!-- temp map holder -->
+                    
+                        
+                    </div>
+
+                </div>
+                <!-- end map card -->
+
+                <br><hr><br>
+
+                
+                <!-- Search/sort card -->
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-search-location"></i><strong> Search Pokes</strong></h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form class="form">
+                            <div class="form-row">
+                              <div class="col">
+                                <input type="text" class="form-control" id="person" placeholder="search by name...">
+                              </div>
+                              <div class="col">
+                                <input type="text" class="form-control" id="title" placeholder="search by iv...">
+                              </div>
+                              <div class="col">
+                                <input type="text" class="form-control" id="startDate" placeholder="search by cp...">
+                              </div><br>
+                              <button type="submit" class="btn btn-outline-dark" id="submit"><i class="fas fa-search"></i> SUBMIT</button>
+                            </div>
+                        </form>
+                        
+                        
+                    </div>
+
+                </div>
+                <!-- end search card -->
+                <br>
+                <hr><br>
+                
+
+                <!-- start spawn table posts card -->
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title"><strong><i class="fas fa-map-marker-alt"></i> Current Spawns</strong></h3>
+                    </div>
+
+                    <div class="card-body">
+                        <div id="container">
+                            <div id="results"></div>
+                            <table class="table">
+
+                                <div class="row"></div>
+
+                                <div class="col-lg-12"></div>
+
+                                <thead>
+                                    <tr style="width: 100%;">
+                                        <th scope="col"><h4 class="bold">IMAGE</h4></th>
+                                        <th scope="col"><h4 class="bold">NAME</h4></th>
+                                        <th scope="col"><h4 class="bold">IV</h4></th>
+                                        <th scope="col"><h4 class="bold">CP</h4></th>
+                                        <th scope="col"><h4 class="bold">Level</h4></th>
+                                        <th scope="col"><h4 class="bold">Dsp</h4></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tbody">
+
+
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+                <br><br>
+                <!-- end spawn table card -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Adds a link to the JavaScript file. Loaded at the bottom so it waits for the HTML content to display first. If you put this at the top it will crash, because the HTML IDs won"t exist yet.-->
+    <script  type="text/javascript" src="assets/javascript/app.js"></script>
+    <script type="text/javascript" src="assets/javascript/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-WMeYwTn_iN3ao3YVhoLGE8dSD5-26j0&callback=initMap"></script>
+    <audio id="bicycle-theme"><source src="assets/audio/130-cycling.mp3" type="audio/mp3"></audio>
+    <audio id="opening-theme"><source src="assets/audio/101-opening.mp3" type="audio/mp3"></audio>
+    
+
+</body>
+
+</html>

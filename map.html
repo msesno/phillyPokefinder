@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+    <meta charset='UTF-8'>
+    <title>Employee Timesheets</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Slackey|Mandali" rel="stylesheet">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+    <style>
+            #pokemap {
+              height: 100%;
+            }
+
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #media {
+                z-index: 1;
+                margin: 100px 20px 20px 10px;
+                position: fixed;
+                float: right;
+            }
+            
+    </style>
+</head>
+<body>
+    <div class="card" id="media" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Toggle Music</h5>
+          <hr>
+          <button class="play" id="btn1">PLAY</button>
+        </div>
+    </div>
+
+    <div id="pokemap"></div>
+
+    <script type="text/javascript" src="assets/javascript/map.js"></script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-WMeYwTn_iN3ao3YVhoLGE8dSD5-26j0&callback=initMap">
+    </script>
+
+    <audio id="bicycle-theme">
+        <source src="assets/audio/130-cycling.mp3" type="audio/mp3">
+    </audio>
+
+    
+
+</body>
+</html>

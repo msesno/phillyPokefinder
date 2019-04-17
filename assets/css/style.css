@@ -1,0 +1,52 @@
+h1 {
+    font-family: 'Slackey';
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: bold;
+}
+h3{
+    padding-top: 10px;
+    font-family: 'Slackey'
+}
+h4{
+    font-family: 'Mandali';
+    font-size: 16px;
+}
+.bold {
+    font-weight: bold;
+}
+p {
+    font-family: 'Mandali'
+}
+
+.logInHeader {
+    text-align: center;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    padding-top: 25px;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+}
+
+#btn1 {
+    align-content: center;
+
+}
+
+#topSpace{
+    margin-top: 75px;
+}
+
+#navi {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}

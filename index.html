@@ -1,0 +1,87 @@
+
+<!-- Step 1: Create the Layout. -->
+<!-- Step 2: Flag key sections with specific id names. These will be replaced by JavaScript -->
+
+<!DOCTYPE html>
+
+
+<html lang="en-us">
+
+<head>
+
+    <meta charset='UTF-8'>
+    <title>Philly Pokedex</title>
+
+    <!-- Bootstrap CDN -->
+    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Slackey|Mandali" rel="stylesheet">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Jumbotron header -->
+        <div class='jumbotron'>
+            <div class='container'>
+                <h1 class="text-center"><img src="assets/images/logo.svg" alt="logo" class="fa-spin"> Philly Pokedex</h1>
+                <hr>
+                <p class="text-center"><small><i class="fas fa-layer-group"></i> list existing pokemons and find in search below</small>
+                </p>
+                <!-- <h5 class="text-center">Toggle Music</h5>
+                <br>
+                <button class="play" id="btn1">PLAY</button> -->
+            </div>
+        </div>
+
+        <!-- Login row section -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!-- First card: Holds the Word to Guess (blanks and guessed word). -->
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-search-location"></i><strong> Login</strong></h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <!-- Sign in Panel -->
+                    <div class="panel panel-default">
+                        <div class="container ">
+                        <div class="row">
+                        <h3 class="logInHeader">please log in with your google account</h2>
+                        <div class="signin logInHeader" id="firebaseui-auth-container"></div>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- Sign in Panel -->
+                        
+                        
+                    </div>
+
+                </div>
+                <br><br>
+                <!-- Results -->
+                
+                
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Adds a link to the JavaScript file. Loaded at the bottom so it waits for the HTML content to display first. If you put this at the top it will crash, because the HTML IDs won"t exist yet.-->
+    <script src="assets/javascript/signin.js"></script>
+    
+</body>
+
+
+</html>
+
